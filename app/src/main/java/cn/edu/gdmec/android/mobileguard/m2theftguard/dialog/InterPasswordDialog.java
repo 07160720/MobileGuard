@@ -58,13 +58,14 @@ public class InterPasswordDialog extends Dialog implements View.OnClickListener 
                 myCallBack.confirm();
                 break;
             case R.id.btn_dismiss:
+                myCallBack.cancle();
                 break;
         }
     }
     public String getPassword(){
         return mInterET.getText().toString();
     }
-    public void setMyCallBack(MyCallBack myCallBack){
+    public void setCallBack(MyCallBack myCallBack){
         this.myCallBack = myCallBack;
     }
 

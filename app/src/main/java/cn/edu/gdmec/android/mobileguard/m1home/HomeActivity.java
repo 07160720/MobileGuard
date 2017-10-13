@@ -39,10 +39,12 @@ public class HomeActivity extends AppCompatActivity {
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 System.out.print(i);
                 switch (i) {
-                    case 0:
+                    case 0://点击手机防盗
                         if (isSetUpPassword()) {
+                            //弹出输入密码对话框
                             showInterPswdDialog();
                         } else {
+                            //弹出设置密码对话框
                             showSetUpPswdDialog();
                         }
                         break;
@@ -51,7 +53,7 @@ public class HomeActivity extends AppCompatActivity {
         });
     }
 
-    public void startActivity(Class<?> cls) {
+    public void startActivity(Class<?> cls) {//startActivity有错，没有暗色
         Intent intent = new Intent(HomeActivity.this, cls);
         startActivity(intent);
     }
@@ -105,7 +107,7 @@ public class HomeActivity extends AppCompatActivity {
     private void showInterPswdDialog() {
         final String password = getPassword();
         final InterPasswordDialog mInPswdDialog = new InterPasswordDialog(HomeActivity.this);
-        mInPswdDialog.setMyCallBack(new InterPasswordDialog.MyCallBack() {
+        mInPswdDialog.setCallBack(new InterPasswordDialog.MyCallBack() {//
             @Override
             public void confirm() {
                 if (TextUtils.isEmpty(mInPswdDialog.getPassword())) {
@@ -116,6 +118,7 @@ public class HomeActivity extends AppCompatActivity {
                     startActivity(LostFindActivity.class);
                     Toast.makeText(HomeActivity.this, "可以进入手机防盗模块", Toast.LENGTH_LONG).show();
                 } else {
+                    //对话框消失，弹出土司
                     mInPswdDialog.dismiss();
                     Toast.makeText(HomeActivity.this, "密码有误，请重新输入", Toast.LENGTH_LONG).show();
                 }
