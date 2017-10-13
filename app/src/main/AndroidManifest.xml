@@ -20,11 +20,11 @@
             </intent-filter>
         </activity>
         <activity android:name=".m1home.HomeActivity" />
-        <activity android:name=".m2theftguard.utils.LostFindActivity" />
-        <activity android:name=".m2theftguard.utils.Setup1Activity" />
-        <activity android:name=".m2theftguard.utils.Setup2Activity" />
-        <activity android:name=".m2theftguard.utils.Setup3Activity" />
-        <activity android:name=".m2theftguard.utils.Setup4Activity"></activity>
+        <activity android:name=".m2theftguard.LostFindActivity" />
+        <activity android:name=".m2theftguard.Setup1Activity" />
+        <activity android:name=".m2theftguard.Setup2Activity" />
+        <activity android:name=".m2theftguard.Setup3Activity" />
+        <activity android:name=".m2theftguard.Setup4Activity"></activity>
     </application>
 
 </manifest>

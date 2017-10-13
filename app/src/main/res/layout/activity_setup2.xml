@@ -75,5 +75,6 @@
         android:background="@color/purple"
         android:gravity="center"
         >
+        <include layout="@layout/setup_radiogroup"/>
     </LinearLayout>
 </LinearLayout>

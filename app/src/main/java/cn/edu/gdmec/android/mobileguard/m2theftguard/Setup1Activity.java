@@ -1,6 +1,5 @@
-package cn.edu.gdmec.android.mobileguard.m2theftguard.utils;
+package cn.edu.gdmec.android.mobileguard.m2theftguard;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.RadioButton;
 import android.widget.Toast;
@@ -19,7 +18,7 @@ public class Setup1Activity extends BaseSetUpActivity {
         startActivityAndFinishSelf(Setup2Activity.class);
     }
   public  void showPre(){
-      Toast.makeText(this,"当前页面已经是第一页",Toast.LENGTH_LONG);
+      Toast.makeText(this,"当前页面已经是第一页",Toast.LENGTH_LONG).show();
   }
 
 }
