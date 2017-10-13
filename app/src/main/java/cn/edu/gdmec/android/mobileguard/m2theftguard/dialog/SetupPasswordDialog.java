@@ -4,25 +4,18 @@ import android.app.Dialog;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
 
-import org.apache.http.util.TextUtils;
-
 import cn.edu.gdmec.android.mobileguard.R;
 
-/**
- * Created by Lenovo on 2017/9/27.
- */
 
 public class SetupPasswordDialog extends Dialog implements View.OnClickListener {
     private TextView mTitleTV;
-    //密码文本框
     public EditText mFirstPWDET;
-    //确认密码文本框
     public EditText mAffirmET;
-    //回调接口
     private MyCallBack myCallBack;
 
     @Override
@@ -32,15 +25,13 @@ public class SetupPasswordDialog extends Dialog implements View.OnClickListener 
         initView();
     }
 
-    public SetupPasswordDialog(@NonNull Context context){
-        super(context,R.style.dialog_custom);
+    public SetupPasswordDialog(@NonNull Context context) {
+        super(context, R.style.dialog_custom);
     }
-
-    //初始化控件
     private void initView(){
         mTitleTV = (TextView) findViewById(R.id.tv_setuppwd_title);
         mFirstPWDET = (EditText) findViewById(R.id.et_firstpwd);
-        mFirstPWDET = (EditText) findViewById(R.id.et_affirm_password);
+        mAffirmET = (EditText) findViewById(R.id.et_affirm_password);
         findViewById(R.id.btn_ok).setOnClickListener(this);
         findViewById(R.id.btn_cancel).setOnClickListener(this);
     }
@@ -50,26 +41,26 @@ public class SetupPasswordDialog extends Dialog implements View.OnClickListener 
             mTitleTV.setText(title);
         }
     }
-
     public void setCallBack(MyCallBack myCallBack){
         this.myCallBack = myCallBack;
     }
 
     @Override
-    public void onClick(View view){
-        switch (view.getId()){
+    public void onClick(View v) {
+        switch(v.getId()){
             case R.id.btn_ok:
+                System.out.print("SetupPasswordDialog");
                 myCallBack.ok();
                 break;
             case R.id.btn_cancel:
                 myCallBack.cancel();
                 break;
         }
-    }
 
+    }
     public interface MyCallBack{
         void ok();
         void cancel();
-    }
 
+    }
 }
