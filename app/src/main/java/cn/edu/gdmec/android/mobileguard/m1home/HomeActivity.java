@@ -1,5 +1,7 @@
 package cn.edu.gdmec.android.mobileguard.m1home;
 
+import android.app.admin.DevicePolicyManager;
+import android.content.ComponentName;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
@@ -11,12 +13,12 @@ import android.widget.GridView;
 import android.widget.Toast;
 
 import android.text.TextUtils;
-
 import cn.edu.gdmec.android.mobileguard.R;
 import cn.edu.gdmec.android.mobileguard.m1home.adapter.HomeAdapter;
+import cn.edu.gdmec.android.mobileguard.m2theftguard.LostFindActivity;
 import cn.edu.gdmec.android.mobileguard.m2theftguard.dialog.InterPasswordDialog;
 import cn.edu.gdmec.android.mobileguard.m2theftguard.dialog.SetupPasswordDialog;
-import cn.edu.gdmec.android.mobileguard.m2theftguard.LostFindActivity;
+import cn.edu.gdmec.android.mobileguard.m2theftguard.receiver.MyDeviceAdminReceiver;
 import cn.edu.gdmec.android.mobileguard.m2theftguard.utils.MD5Utils;
 
 
@@ -26,6 +28,11 @@ public class HomeActivity extends AppCompatActivity {
     //存储手机防盗密码
     private SharedPreferences msharedPreferences;
 
+    private DevicePolicyManager policyManager;
+    private ComponentName componentName;
+
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,26 +41,33 @@ public class HomeActivity extends AppCompatActivity {
         msharedPreferences = getSharedPreferences("config", MODE_PRIVATE);
         gv_home = (GridView) findViewById(R.id.gv_home);
         gv_home.setAdapter(new HomeAdapter(HomeActivity.this));
-        gv_home.setOnItemClickListener(new AdapterView.OnItemClickListener(){
+        gv_home.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 System.out.print(i);
                 switch (i) {
-                    case 0://点击手机防盗
+                    case 0:
                         if (isSetUpPassword()) {
-                            //弹出输入密码对话框
                             showInterPswdDialog();
                         } else {
-                            //弹出设置密码对话框
                             showSetUpPswdDialog();
                         }
                         break;
                 }
             }
         });
+        policyManager=(DevicePolicyManager) getSystemService(DEVICE_POLICY_SERVICE);
+        componentName=new ComponentName(this, MyDeviceAdminReceiver.class);
+        boolean active=policyManager.isAdminActive(componentName);
+        if (!active){
+            Intent intent= new Intent(DevicePolicyManager.ACTION_ADD_DEVICE_ADMIN);
+            intent.putExtra(DevicePolicyManager.EXTRA_DEVICE_ADMIN,componentName);
+            intent.putExtra(DevicePolicyManager.EXTRA_ADD_EXPLANATION,"获取超级管理员权限，用于远程锁屏和清除数据");
+            startActivity(intent);
+        }
     }
 
-    public void startActivity(Class<?> cls) {//startActivity有错，没有暗色
+    public void startActivity(Class<?> cls) {
         Intent intent = new Intent(HomeActivity.this, cls);
         startActivity(intent);
     }
@@ -107,7 +121,7 @@ public class HomeActivity extends AppCompatActivity {
     private void showInterPswdDialog() {
         final String password = getPassword();
         final InterPasswordDialog mInPswdDialog = new InterPasswordDialog(HomeActivity.this);
-        mInPswdDialog.setCallBack(new InterPasswordDialog.MyCallBack() {//
+        mInPswdDialog.setCallBack(new InterPasswordDialog.MyCallBack() {
             @Override
             public void confirm() {
                 if (TextUtils.isEmpty(mInPswdDialog.getPassword())) {
@@ -118,7 +132,6 @@ public class HomeActivity extends AppCompatActivity {
                     startActivity(LostFindActivity.class);
                     Toast.makeText(HomeActivity.this, "可以进入手机防盗模块", Toast.LENGTH_LONG).show();
                 } else {
-                    //对话框消失，弹出土司
                     mInPswdDialog.dismiss();
                     Toast.makeText(HomeActivity.this, "密码有误，请重新输入", Toast.LENGTH_LONG).show();
                 }
