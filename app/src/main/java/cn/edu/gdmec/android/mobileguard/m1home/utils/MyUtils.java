@@ -10,13 +10,16 @@ import android.content.pm.PackageManager;
 
 public class MyUtils {
     public static String getVersion(Context context){
-        PackageManager packageManager = context.getPackageManager();
-        try{
-            PackageInfo packageInfo = packageManager.getPackageInfo(context.getPackageName(),0);
+        PackageManager packageManager=context.getPackageManager();
+
+        try {
+            PackageInfo packageInfo=packageManager.getPackageInfo(context.getPackageName(),0);
             return packageInfo.versionName;
-        }catch (PackageManager.NameNotFoundException e){
+        } catch (PackageManager.NameNotFoundException e) {
             e.printStackTrace();
             return "";
         }
+
+
     }
 }

@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+
 import android.view.KeyEvent;
 import android.view.View;
 import android.widget.AdapterView;
@@ -14,6 +15,7 @@ import android.widget.Toast;
 
 import android.text.TextUtils;
 import cn.edu.gdmec.android.mobileguard.R;
+
 import cn.edu.gdmec.android.mobileguard.m1home.adapter.HomeAdapter;
 import cn.edu.gdmec.android.mobileguard.m2theftguard.LostFindActivity;
 import cn.edu.gdmec.android.mobileguard.m2theftguard.dialog.InterPasswordDialog;
@@ -39,22 +41,29 @@ public class HomeActivity extends AppCompatActivity {
         setContentView(R.layout.activity_home);
         getSupportActionBar().hide();
         msharedPreferences = getSharedPreferences("config", MODE_PRIVATE);
+
         gv_home = (GridView) findViewById(R.id.gv_home);
         gv_home.setAdapter(new HomeAdapter(HomeActivity.this));
         gv_home.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 System.out.print(i);
-                switch (i) {
+                switch (i){
                     case 0:
-                        if (isSetUpPassword()) {
+                        if (isSetUpPassword()){
                             showInterPswdDialog();
-                        } else {
+
+                        }else
+                        {
                             showSetUpPswdDialog();
+
                         }
                         break;
                 }
             }
+
+
+
         });
         policyManager=(DevicePolicyManager) getSystemService(DEVICE_POLICY_SERVICE);
         //申请权限，MyDeviceAdminReciever继承自DeviceAdminReceiver
@@ -65,27 +74,26 @@ public class HomeActivity extends AppCompatActivity {
             intent.putExtra(DevicePolicyManager.EXTRA_DEVICE_ADMIN,componentName);
             intent.putExtra(DevicePolicyManager.EXTRA_ADD_EXPLANATION,"获取超级管理员权限，用于远程锁屏和清除数据");
             startActivity(intent);
+
         }
     }
 
-    public void startActivity(Class<?> cls) {
-        Intent intent = new Intent(HomeActivity.this, cls);
+    public void startActivity(Class<?> cls){
+        Intent intent=new Intent(HomeActivity.this,cls);
         startActivity(intent);
     }
-
-    //退出程序
     @Override
-    public boolean onKeyDown(int keyCode, KeyEvent event) {
-        if (keyCode == KeyEvent.KEYCODE_BACK) {
-            if ((System.currentTimeMillis() - mExitTime) < 2000) {
+    public boolean onKeyDown(int keyCode,KeyEvent event ){
+        if(keyCode==KeyEvent.KEYCODE_BACK){
+            if (System.currentTimeMillis()-mExitTime<2000){
                 System.exit(0);
-            } else {
-                Toast.makeText(this, "再按一次退出程序", Toast.LENGTH_LONG).show();
-                mExitTime = System.currentTimeMillis();
+            }else {
+                Toast.makeText(this,"再按一次退出程序",Toast.LENGTH_LONG).show();
+                mExitTime=System.currentTimeMillis();
             }
             return true;
         }
-        return super.onKeyDown(keyCode, event);
+        return super.onKeyDown(keyCode,event);
     }
 
     //弹出密码对话框
@@ -166,9 +174,10 @@ public class HomeActivity extends AppCompatActivity {
     }
     //判断是否设置防盗密码
     private boolean isSetUpPassword(){
-        String password = msharedPreferences.getString("PhoneAntiTheftPWD",null);
-        if(TextUtils.isEmpty(password)){
+        String password=msharedPreferences.getString("PhotoAntiTheftPWD",null);
+        if (TextUtils.isEmpty(password)){
             return false;
+
         }
         return true;
     }
