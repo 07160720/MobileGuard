@@ -19,12 +19,13 @@
             android:layout_marginLeft="10dp"
             android:text="安全号码"
             android:textColor="@color/purple" />
+
         <TextView
             android:id="@+id/tv_safephone"
             style="@style/textview16sp"
             android:layout_alignParentRight="true"
             android:layout_centerVertical="true"
-            android:layout_marginRight="15dp"
+            android:layout_marginRight="10dp"
             android:textColor="@color/purple" />
     </RelativeLayout>
 
@@ -137,11 +138,9 @@
             <TextView
                 style="@style/textview16sp"
                 android:layout_alignParentRight="true"
-
                 android:layout_marginRight="10dp"
-                android:text="#*locatioin*#"
-                android:textColor="@color/purple"
-                />
+                android:text="#*location*#"
+                android:textColor="@color/purple"/>
             <TextView
                 style="@style/textview16sp"
                 android:layout_alignParentLeft="true"
@@ -151,7 +150,6 @@
                 android:drawablePadding="5dp"
                 android:text="GPS追踪"
                 android:textColor="@color/purple"/>
-
         </RelativeLayout>
         <RelativeLayout
             android:layout_width="match_parent"
@@ -160,7 +158,6 @@
             <TextView
                 style="@style/textview16sp"
                 android:layout_alignParentRight="true"
-
                 android:layout_marginRight="10dp"
                 android:text="#*lockScreen*#"
                 android:textColor="@color/purple"/>
@@ -172,19 +169,15 @@
                 android:drawableLeft="@drawable/lock_screen_icon_small"
                 android:drawablePadding="5dp"
                 android:text="远程锁屏"
-                android:textColor="@color/purple"
-                />
-
+                android:textColor="@color/purple"/>
         </RelativeLayout>
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="15dp"
-            >
+            android:layout_marginTop="15dp">
             <TextView
                 style="@style/textview16sp"
                 android:layout_alignParentRight="true"
-
                 android:layout_marginRight="10dp"
                 android:text="#*wipedata*#"
                 android:textColor="@color/purple"/>
@@ -196,7 +189,8 @@
                 android:drawableLeft="@drawable/delete_data_small"
                 android:drawablePadding="5dp"
                 android:text="远程删除数据"
-                android:textColor="@color/purple" />
+                android:textColor="@color/purple"/>
         </RelativeLayout>
+
     </LinearLayout>
 </LinearLayout>
