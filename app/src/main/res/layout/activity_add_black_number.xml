@@ -10,7 +10,7 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="5dp"
         android:background="@drawable/coner_white_rec"
         android:hint="请输入要添加的号码"
         android:inputType="phone"
@@ -23,12 +23,25 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="5dp"
         android:background="@drawable/coner_white_rec"
         android:hint="请输入名称"
         android:paddingLeft="5dp"
         android:textColor="@color/bright_purple"
         android:textSize="16sp"/>
+    <EditText
+        android:id="@+id/et_blackname1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="5dp"
+        android:background="@drawable/coner_white_rec"
+        android:hint="电话的类型"
+        android:paddingLeft="5dp"
+        android:textColor="@color/bright_purple"
+        android:textSize="16sp"/>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -64,13 +77,13 @@
         android:layout_width="170dp"
         android:layout_height="40dp"
         android:layout_gravity="center_horizontal"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="1dp"
         android:background="@drawable/add_btn_selector_securityphone"/>
     <Button
         android:id="@+id/add_fromcontact_btn"
         android:layout_width="170dp"
         android:layout_height="40dp"
         android:layout_gravity="center_horizontal"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="1dp"
         android:background="@drawable/add_fromcontact_btn_selector_securityphone"/>
 </LinearLayout>
