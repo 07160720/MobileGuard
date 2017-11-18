@@ -192,5 +192,5 @@ public class VirusScanSpeedActivity extends AppCompatActivity implements View.On
     protected void onDestroy() {
         flag = false;
         super.onDestroy();
-    }
+    }//xixi
 }
