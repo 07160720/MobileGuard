@@ -1,5 +1,6 @@
 package cn.edu.gdmec.android.mobileguard.m4appmanager.utils;
 import android.content.Context;
+import android.content.pm.ActivityInfo;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
@@ -60,6 +61,20 @@ public class AppInfoParser {
                     }
                 }
             } catch (Exception e) {
+                e.printStackTrace();
+            }
+            //Activity活动新加代码
+            try{
+                PackageInfo packinfo2 = pm.getPackageInfo(packname, PackageManager.GET_ACTIVITIES);
+                ActivityInfo[] act =packinfo2.activities;
+                List<ActivityInfo> a=new ArrayList<>();
+                if(act != null){
+                    for(ActivityInfo str : act){
+                        a.add(str);
+                        appinfo.activityName = a.toString();
+                    }
+                }
+            }catch(Exception e){
                 e.printStackTrace();
             }
             int flags = packInfo.applicationInfo.flags;

@@ -18,11 +18,11 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 import java.util.List;
-
 import cn.edu.gdmec.android.mobileguard.R;
 import cn.edu.gdmec.android.mobileguard.m4appmanager.adapter.AppManagerAdapter;
 import cn.edu.gdmec.android.mobileguard.m4appmanager.entity.AppInfo;
 import cn.edu.gdmec.android.mobileguard.m4appmanager.utils.AppInfoParser;
+
 /**
  * Created by Lee on 2017/11/10.
  */
@@ -36,7 +36,6 @@ public class AppManagerActivity extends AppCompatActivity implements View.OnClic
     private List<AppInfo> systemAppInfos = new ArrayList<AppInfo>();
     private AppManagerAdapter adapter;
     private TextView mAppNumTV;
-    private TextView mAboutBTN;
     private UninstallRececiver receciver;
 
     private Handler mHandler = new Handler(){
@@ -82,6 +81,7 @@ public class AppManagerActivity extends AppCompatActivity implements View.OnClic
         }
     }
 
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_app_manager);
@@ -101,7 +101,6 @@ public class AppManagerActivity extends AppCompatActivity implements View.OnClic
         mSDMemoryTV = (TextView) findViewById(R.id.tv_sdmemory_appmanager);
         mAppNumTV = (TextView) findViewById(R.id.tv_appnumber);
         mListView = (ListView) findViewById(R.id.lv_appmanager);
-        mAboutBTN = (TextView) findViewById(R.id.tv_aboutapp);
         getMemoryFromPhone();
         initData();
         initListener();
@@ -173,4 +172,4 @@ public class AppManagerActivity extends AppCompatActivity implements View.OnClic
         receciver = null;
         super.onDestroy();
     }
-  }
+}
