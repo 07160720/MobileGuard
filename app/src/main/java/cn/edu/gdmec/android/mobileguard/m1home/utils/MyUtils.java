@@ -23,7 +23,9 @@ public class MyUtils {
             e.printStackTrace();
             return "";
         }
+
     }
+    //下载安装
     public static void installApk(Activity activity, String apkFile){
         Intent intent = new Intent(Intent.ACTION_VIEW);
         intent.addCategory(Intent.CATEGORY_DEFAULT);
@@ -31,4 +33,5 @@ public class MyUtils {
                 new File(Environment.getExternalStoragePublicDirectory("/download/").getPath()+"/"+apkFile)),"application/vnd.android.package-archive");
         activity.startActivityForResult(intent,0);
     }
+
 }
