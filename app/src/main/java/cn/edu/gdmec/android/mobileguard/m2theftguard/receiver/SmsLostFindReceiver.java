@@ -1,6 +1,5 @@
 package cn.edu.gdmec.android.mobileguard.m2theftguard.receiver;
 
-
 import android.app.Activity;
 import android.app.admin.DevicePolicyManager;
 import android.content.BroadcastReceiver;

@@ -1,9 +1,12 @@
 package cn.edu.gdmec.android.mobileguard.m8trafficmonitor;
 import android.content.BroadcastReceiver;
+import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.content.ServiceConnection;
 import android.content.SharedPreferences;
+import android.os.IBinder;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.telephony.SmsManager;
@@ -34,10 +37,26 @@ public class TrafficMonitoringActivity extends AppCompatActivity implements View
     private TextView mTotalTV;
     private TextView mUsedTV;
     private TextView mToDayTV;
+    //    private TextView mOperatorTV;
     private TrafficDao dao;
     private ImageView mRemindIMGV;
     private TextView mRemindTV;
     private CorrectFlowReceiver receiver;
+    private TrafficMonitoringService trafficMonitoringService =null;
+    private boolean isBound;
+    private ServiceConnection conn = new ServiceConnection() {
+        @Override
+        public void onServiceConnected(ComponentName componentName, IBinder iBinder) {
+            isBound = true;
+            TrafficMonitoringService.MyBinder binder = (TrafficMonitoringService.MyBinder) iBinder;
+            trafficMonitoringService = binder.getService();
+            trafficMonitoringService.getUsedFlow();
+            System.out.println("Usedflow:"+trafficMonitoringService.getUsedFlow());
+        }
+        @Override
+        public void onServiceDisconnected(ComponentName componentName) {
+        }
+    };
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -54,6 +73,7 @@ public class TrafficMonitoringActivity extends AppCompatActivity implements View
                         "cn.edu.gdmec.android.mobileguard.m8trafficmonitor.service.TrafficMonitoringService")) {
             startService(new Intent(this, TrafficMonitoringService.class));
         }
+        bindService(new Intent(this, TrafficMonitoringService.class),conn,BIND_AUTO_CREATE);
         initView();
         registReceiver();
         initData();
@@ -138,11 +158,11 @@ public class TrafficMonitoringActivity extends AppCompatActivity implements View
                         smsManager.sendTextMessage("10086", null, "CXLL", null, null);
                         break;
                     case 2:
-                        smsManager.sendTextMessage("10001",null,"108",null,null);
+                        smsManager.sendTextMessage("10010", null, "CXLL", null, null);
                         // 中国联通
                         break;
                     case 3:
-                        smsManager.sendTextMessage("10001",null,"108",null,null);
+                        //smsManager.sendTextMessage("10001",null,"108",null,null);
                         // 中国电信
                         break;
                 }
@@ -159,6 +179,40 @@ public class TrafficMonitoringActivity extends AppCompatActivity implements View
                 String address = smsMessage.getOriginatingAddress();
                 // 以下短信分割只针对中国移动用户
                 if (!address.equals("10086")) {
+//                    String[] split = body.split("，");
+//                    System.out.println(split[0]);
+//                    // 本月剩余流量
+//                    long left = 0;
+//                    // 本月已用流量
+//                    long used = 0;
+//                    // 本月超出流量
+//                    long beyond = 0;
+//                    for (int i = 0; i < split.length; i++) {
+//                        if (split[i].contains("本月总流量已用")) {
+//                            // 套餐总量
+//                            String usedflow = split[i].substring(9,
+//                                    split[i].length());
+//                            used = getStringTofloat(usedflow);
+//                        } else if (split[i].contains("剩余")) {
+//                            String leftflow = split[i].substring(3,
+//                                    split[i].length());
+//                            left = getStringTofloat(leftflow);
+//                        } else if (split[i].contains("套餐外流量")) {
+//                            String beyondflow = split[i].substring(6,
+//                                    split[i].length());
+//                            beyond = getStringTofloat(beyondflow);
+//                        }
+//                    }
+//                    SharedPreferences.Editor edit = mSP.edit();
+//                    System.out.println("-----"+left);
+//                    edit.putLong("totalflow", used + left);
+//                    edit.putLong("usedflow", used + beyond);
+//                    edit.commit();
+//                    //mOperatorTV.setText("运营商是：中国联通");
+//                    mTotalTV.setText("本月流量："
+//                            + Formatter.formatFileSize(context, (used + left)));
+//                    mUsedTV.setText("本月已用："
+//                            + Formatter.formatFileSize(context, (used + beyond)));
                     return;
                 }
                 String[] split = body.split("，");
@@ -225,5 +279,6 @@ public class TrafficMonitoringActivity extends AppCompatActivity implements View
             receiver = null;
         }
         super.onDestroy();
+        unbindService(conn);
     }
 }

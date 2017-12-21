@@ -1,5 +1,4 @@
 package cn.edu.gdmec.android.mobileguard.m4appmanager.adapter;
-
 import android.content.Context;
 import android.support.v4.content.ContextCompat;
 import android.text.format.Formatter;
@@ -164,10 +163,10 @@ public class AppManagerAdapter extends BaseAdapter{
                     EngineUtils.uninstallApplication(context,appInfo);
                     break;
                 case R.id.tv_aboutapp:
-                    EngineUtils.AboutSign(context,appInfo);
+                    EngineUtils.showApplicationInfo(context,appInfo);
                     break;
                 case R.id.tv_activityapp:
-                    EngineUtils.getActivity(context,appInfo);
+                    EngineUtils.showApplicationActivities(context,appInfo);
                     break;
             }
         }

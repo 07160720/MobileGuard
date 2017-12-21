@@ -3,6 +3,7 @@ import android.app.ActivityManager;
 import android.content.Context;
 
 import java.util.List;
+
 /**
  * Created by Lee on 2017/12/9.
  */

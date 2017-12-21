@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="cn.edu.gdmec.android.mobileguard">
 
     <uses-permission android:name="android.permission.INTERNET" />
@@ -18,6 +19,10 @@
     //m6缓存权限
     <uses-permission android:name="android.permission.GET_PACKAGE_SIZE" />
     <uses-permission android:name="android.permission.CLEAR_APP_CACHE" />
+    <!-- 程序锁部分 -->
+    <uses-permission
+        android:name="android.permission.PACKAGE_USAGE_STATS"
+        tools:ignore="ProtectedPermissions" />
 
     <application
         android:name=".App"
@@ -120,8 +125,17 @@
 
         <activity android:name=".m8trafficmonitor.OperatorSetActivity" />
         <activity android:name=".m8trafficmonitor.TrafficMonitoringActivity" />
-        <!--<activity android:name=".m9advancedtools.NumBelongtoActivity" />-->
-        <!--<activity android:name=".m9advancedtools.AdvancedToolsActivity"></activity>-->
+        <activity android:name=".m9advancedtools.NumBelongtoActivity" />
+        <activity android:name=".m9advancedtools.AdvancedToolsActivity" />
+
+        <service
+            android:name=".m9advancedtools.service.AppLockService"
+            android:enabled="true"
+            android:exported="true"/>
+
+        <activity android:name=".m9advancedtools.EnterPswActivity"/>
+        <activity android:name=".m9advancedtools.AppLockActivity" ></activity>
+
     </application>
 
 </manifest>

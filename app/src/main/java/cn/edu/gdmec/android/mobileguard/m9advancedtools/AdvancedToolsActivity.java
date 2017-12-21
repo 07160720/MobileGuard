@@ -10,7 +10,6 @@ import cn.edu.gdmec.android.mobileguard.R;
 /**
  * Created by Lee on 2017/12/9.
  */
-
 public class AdvancedToolsActivity extends AppCompatActivity implements View.OnClickListener{
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,6 +38,9 @@ public class AdvancedToolsActivity extends AppCompatActivity implements View.OnC
                 break;
             case R.id.advanceview_numbelongs:
                 startActivity(NumBelongtoActivity.class);
+                break;
+            case R.id.advanceview_applock:
+                startActivity(AppLockActivity.class);
                 break;
         }
     }
