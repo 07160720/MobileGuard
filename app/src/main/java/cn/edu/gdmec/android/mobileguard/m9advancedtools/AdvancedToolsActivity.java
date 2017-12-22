@@ -7,9 +7,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import cn.edu.gdmec.android.mobileguard.R;
-/**
- * Created by Lee on 2017/12/9.
- */
+
 public class AdvancedToolsActivity extends AppCompatActivity implements View.OnClickListener{
     @Override
     protected void onCreate(Bundle savedInstanceState) {

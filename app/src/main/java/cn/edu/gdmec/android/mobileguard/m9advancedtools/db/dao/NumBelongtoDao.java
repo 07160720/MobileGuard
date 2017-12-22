@@ -1,8 +1,10 @@
 package cn.edu.gdmec.android.mobileguard.m9advancedtools.db.dao;
+
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.text.TextUtils;
+
 /**
  * Created by Lee on 2017/12/9.
  */

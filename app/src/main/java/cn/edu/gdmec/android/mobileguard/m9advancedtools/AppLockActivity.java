@@ -15,6 +15,7 @@ import java.util.List;
 import cn.edu.gdmec.android.mobileguard.R;
 import cn.edu.gdmec.android.mobileguard.m9advancedtools.fragment.AppLockFragment;
 import cn.edu.gdmec.android.mobileguard.m9advancedtools.fragment.AppUnLockFragment;
+
 /**
  * Created by Lee on 2017/12/20.
  */
