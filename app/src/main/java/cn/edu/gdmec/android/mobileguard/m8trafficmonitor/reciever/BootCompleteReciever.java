@@ -1,4 +1,5 @@
 package cn.edu.gdmec.android.mobileguard.m8trafficmonitor.reciever;
+
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
@@ -6,11 +7,8 @@ import android.util.Log;
 
 import cn.edu.gdmec.android.mobileguard.m8trafficmonitor.service.TrafficMonitoringService;
 import cn.edu.gdmec.android.mobileguard.m8trafficmonitor.utils.SystemInfoUtils;
-/**
- * Created by Lee on 2017/12/9.
- */
 
-public class BootCompleteReciever extends BroadcastReceiver{
+public class BootCompleteReciever extends BroadcastReceiver {
     @Override
     public void onReceive(Context context, Intent intent) {
         //开机广播

@@ -11,9 +11,6 @@ import java.util.Calendar;
 import java.util.Date;
 
 import cn.edu.gdmec.android.mobileguard.m8trafficmonitor.db.dao.TrafficDao;
-/**
- * Created by Lee on 2017/12/9.
- */
 
 public class TrafficMonitoringService extends Service {
     private long mOldRxBytes;
@@ -108,3 +105,4 @@ public class TrafficMonitoringService extends Service {
 
     }
 }
+

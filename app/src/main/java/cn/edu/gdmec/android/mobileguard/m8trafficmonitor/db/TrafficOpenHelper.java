@@ -5,11 +5,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
 
-/**
- * Created by Lee on 2017/12/9.
- */
-
-public class TrafficOpenHelper extends SQLiteOpenHelper{
+public class TrafficOpenHelper extends SQLiteOpenHelper {
     private static final String DB_NAME = "traffic.db";
     private static final String TABLE_NAME = "traffic";
     /** 流量 */
