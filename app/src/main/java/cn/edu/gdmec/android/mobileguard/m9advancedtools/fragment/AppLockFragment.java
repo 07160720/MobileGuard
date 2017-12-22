@@ -29,6 +29,7 @@ import cn.edu.gdmec.android.mobileguard.m4appmanager.utils.AppInfoParser;
 import cn.edu.gdmec.android.mobileguard.m8trafficmonitor.utils.SystemInfoUtils;
 import cn.edu.gdmec.android.mobileguard.m9advancedtools.adapter.AppLockAdapter;
 import cn.edu.gdmec.android.mobileguard.m9advancedtools.db.dao.AppLockDao;
+
 /**
  * Created by Lee on 2017/12/20.
  */

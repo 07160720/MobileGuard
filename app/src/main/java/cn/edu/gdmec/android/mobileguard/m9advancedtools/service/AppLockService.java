@@ -18,6 +18,7 @@ import java.util.List;
 import cn.edu.gdmec.android.mobileguard.App;
 import cn.edu.gdmec.android.mobileguard.m9advancedtools.EnterPswActivity;
 import cn.edu.gdmec.android.mobileguard.m9advancedtools.db.dao.AppLockDao;
+
 /**
  * Created by Lee on 2017/12/20.
  */
