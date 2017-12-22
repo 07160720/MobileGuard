@@ -52,7 +52,7 @@ public class AddBlackNumberActivity extends AppCompatActivity implements View.On
             String type = data.getStringExtra("type");
             mNameET.setText(name);
             mNumET.setText(phone);
-            mTypeET.setText(type);
+            mTypeET.setText("骚扰");
         }
     }
 

@@ -23,6 +23,11 @@ import cn.edu.gdmec.android.mobileguard.m4appmanager.entity.AppInfo;
  */
 
 public class AppInfoParser {
+    /**
+     * 获取手机里面的所有的应用程序
+     * @param context 上下文
+     * @return
+     */
     public static List<AppInfo> getAppInfos(Context context){
         //获取包管理器。
         PackageManager pm = context.getPackageManager();

@@ -23,5 +23,4 @@ public class DensityUtil {
         }
         return (int) pxValue;
     }
-
 }
