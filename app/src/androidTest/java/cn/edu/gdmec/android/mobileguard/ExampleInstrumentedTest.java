@@ -539,7 +539,7 @@ public class ExampleInstrumentedTest {
             throw new Exception("Can't enter CacheScanActivity.");
         }
     }
-    @Test
+   // @Test
     public void t27EnterTrafficMonitoring() throws Exception {
         result = mDevice.findObject(new UiSelector().textStartsWith("关闭"));
         result.clickAndWaitForNewWindow();
@@ -558,7 +558,7 @@ public class ExampleInstrumentedTest {
             throw new Exception("Can't enter TrafficMonitoringActivity.");
         }
     }
-    @Test
+    //@Test
     public void t28SetupOperator() throws Exception {
         result = mDevice.findObject(new UiSelector().textStartsWith("暂不升级"));
         result.clickAndWaitForNewWindow();
@@ -642,7 +642,29 @@ public class ExampleInstrumentedTest {
             throw new Exception("Can't find App lock.");
         }
     }
-//    @Test
+   // @Test
+    public void t34AddAppLock() throws Exception {
+        result = mDevice.findObject(new UiSelector().textStartsWith("暂不升级"));
+        result.clickAndWaitForNewWindow();
+        boolean findApp1 = false;
+        result = mDevice.findObject(new UiSelector().textStartsWith("高级工具"));
+        result.clickAndWaitForNewWindow();
+        result = mDevice.findObject(new UiSelector().textStartsWith("程序锁"));
+        result.clickAndWaitForNewWindow();
+        UiScrollable  appList = new UiScrollable(new UiSelector().className("android.widget.ListView"));
+        appList.flingToBeginning(5);
+        result = appList.getChildByText(new UiSelector().className("android.widget.TextView"),"App1",true);
+        result.clickAndWaitForNewWindow();
+        try {
+            result = appList.getChildByText(new UiSelector().className("android.widget.TextView"),"App1",true);
+            findApp1 = true;
+        } catch (UiObjectNotFoundException e) {
+        }
+        if(findApp1){
+            throw new Exception("Can't add App lock.");
+        }
+    }
+  //@Test
     public void t35RemoveAppLock() throws Exception {
         result = mDevice.findObject(new UiSelector().textStartsWith("暂不升级"));
         result.clickAndWaitForNewWindow();
@@ -666,7 +688,7 @@ public class ExampleInstrumentedTest {
             throw new Exception("Can't remove App lock.");
         }
     }
-    //@Test
+   // @Test
     public void t36LockApp1() throws Exception {
         result = mDevice.findObject(new UiSelector().textStartsWith("暂不升级"));
         result.clickAndWaitForNewWindow();
@@ -761,7 +783,7 @@ public class ExampleInstrumentedTest {
             throw new Exception("Can't find App lock.");
         }
     }
-    //@Test
+    @Test
     public void t38AppManagerActivities() throws Exception {
         result = mDevice.findObject(new UiSelector().textStartsWith("暂不升级"));
         result.clickAndWaitForNewWindow();
@@ -778,7 +800,7 @@ public class ExampleInstrumentedTest {
             throw new Exception("Can't get Activities.");
         }
     }
-    //@Test
+    @Test
     public void t39CloudScanVirus() throws Exception {
         result = mDevice.findObject(new UiSelector().textStartsWith("暂不升级"));
         result.clickAndWaitForNewWindow();
@@ -798,7 +820,7 @@ public class ExampleInstrumentedTest {
             throw new Exception("Can't find cloud scan virus.");
         }
     }
-    //@Test
+    @Test
     public void t40CorrectFlowChinaUnicom() throws Exception {
         result = mDevice.findObject(new UiSelector().textStartsWith("暂不升级"));
         result.clickAndWaitForNewWindow();

@@ -10,9 +10,6 @@ import android.widget.Spinner;
 import android.widget.TextView;
 
 import cn.edu.gdmec.android.mobileguard.R;
-/**
- * Created by Lee on 2017/12/9.
- */
 
 public class OperatorSetActivity extends AppCompatActivity implements View.OnClickListener{
     private Spinner mSelectSP;

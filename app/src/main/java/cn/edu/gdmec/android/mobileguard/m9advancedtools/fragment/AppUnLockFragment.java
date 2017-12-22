@@ -1,4 +1,5 @@
 package cn.edu.gdmec.android.mobileguard.m9advancedtools.fragment;
+import android.content.Context;
 import android.database.ContentObserver;
 import android.net.Uri;
 import android.os.Bundle;
@@ -24,11 +25,7 @@ import cn.edu.gdmec.android.mobileguard.m4appmanager.utils.AppInfoParser;
 import cn.edu.gdmec.android.mobileguard.m9advancedtools.adapter.AppLockAdapter;
 import cn.edu.gdmec.android.mobileguard.m9advancedtools.db.dao.AppLockDao;
 
-/**
- * Created by Lee on 2017/12/20.
- */
-
-public class AppUnLockFragment extends Fragment{
+public class AppUnLockFragment extends Fragment {
     private TextView mUnLockTV;
     private ListView mUnLockLV;
     List<AppInfo> unlockApps = new ArrayList<AppInfo>();
