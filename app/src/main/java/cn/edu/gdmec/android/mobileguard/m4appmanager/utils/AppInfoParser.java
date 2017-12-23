@@ -21,7 +21,6 @@ import cn.edu.gdmec.android.mobileguard.m4appmanager.entity.AppInfo;
 /**
  * Created by Lee on 2017/11/10.
  */
-
 public class AppInfoParser {
     /**
      * 获取手机里面的所有的应用程序

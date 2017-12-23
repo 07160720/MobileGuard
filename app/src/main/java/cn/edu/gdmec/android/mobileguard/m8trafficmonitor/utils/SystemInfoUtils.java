@@ -4,10 +4,6 @@ import android.content.Context;
 
 import java.util.List;
 
-/**
- * Created by Lee on 2017/12/9.
- */
-
 public class SystemInfoUtils {
     public static boolean isServiceRunning(Context context, String className){
         ActivityManager am = (ActivityManager) context.getSystemService(Context.ACTIVITY_SERVICE);
