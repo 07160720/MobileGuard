@@ -1,13 +1,8 @@
 package cn.edu.gdmec.android.mobileguard.m2theftguard.utils;
-
-
 import java.io.File;
 import java.io.FileInputStream;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-/**
- * Created by Lenovo on 2017/9/27.
- */
 
 public class MD5Utils {
     public static String encode(String text){

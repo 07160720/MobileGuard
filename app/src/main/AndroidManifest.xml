@@ -113,6 +113,11 @@
         <activity android:name=".m7processmanager.ProcessManagerActivity" />
         <activity android:name=".m7processmanager.ProcessManagerSettingActivity" />
 
+        <service
+            android:name=".m8trafficmonitor.service.TrafficMonitoringService"
+            android:enabled="true"
+            android:exported="true" />
+
         <receiver
             android:name=".m8trafficmonitor.reciever.BootCompleteReciever"
             android:enabled="true"
@@ -126,20 +131,11 @@
         <service
             android:name=".m9advancedtools.service.AppLockService"
             android:enabled="true"
-            android:exported="true" />
+            android:exported="true"/>
 
-        <activity android:name=".m9advancedtools.EnterPswActivity" />
-        <activity android:name=".m9advancedtools.AppLockActivity" />
+        <activity android:name=".m9advancedtools.EnterPswActivity"/>
+        <activity android:name=".m9advancedtools.AppLockActivity" ></activity>
 
-        <service
-            android:name=".m8trafficmonitor.service.TrafficMonitoringService"
-            android:enabled="true"
-            android:exported="true" />
-
-        <receiver
-            android:name=".m8trafficmonitor.MyReceiverBootCompleteReciever"
-            android:enabled="true"
-            android:exported="true" />
     </application>
 
 </manifest>

@@ -20,8 +20,7 @@ import cn.edu.gdmec.android.mobileguard.R;
 import cn.edu.gdmec.android.mobileguard.m1home.utils.VersionUpdateUtils;
 import cn.edu.gdmec.android.mobileguard.m5virusscan.dao.AntiVirusDao;
 
-
-public class VirusScanActivity extends AppCompatActivity implements View.OnClickListener{
+public class VirusScanActivity extends AppCompatActivity implements View.OnClickListener {
     private TextView mLastTimeTV;
     private TextView mDbVersionTV;
     private SharedPreferences mSP;

@@ -12,9 +12,6 @@ import java.util.List;
 
 import cn.edu.gdmec.android.mobileguard.R;
 import cn.edu.gdmec.android.mobileguard.m5virusscan.entity.ScanAppInfo;
-/**
- * Created by Lee on 2017/11/17.
- */
 
 public class ScanVirusAdapter extends BaseAdapter {
     private List<ScanAppInfo> mScanAppInfos;
@@ -67,4 +64,3 @@ public class ScanVirusAdapter extends BaseAdapter {
         return view;
     }
 }
-
