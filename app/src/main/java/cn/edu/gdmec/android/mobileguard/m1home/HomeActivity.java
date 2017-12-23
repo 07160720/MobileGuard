@@ -33,7 +33,7 @@ public class HomeActivity extends AppCompatActivity {
     private SharedPreferences msharedPreferences;
     private DevicePolicyManager policyManager;
     private ComponentName componentName;
-
+//.....
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
